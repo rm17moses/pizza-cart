@@ -57,13 +57,14 @@
                 </div>
 
 
-              <div x-show="open">
-                <div class="mt-2">
-                  <p class="message fw-bold text-center bg-warning bg-gradient p-2 rounded" x-show="$data.showMessage" x-text="$data.paymentAmount >= $data.getTotalPrice() ? 'Enjoy your pizzas!' : 'Sorry - that is not enough money!'"></p>
-                  <input type="number" step="20" min="0" x-model.number="$data.paymentAmount" placeholder="Enter payment amount" class="p-1 pt-0" />
-                  <button class="btn btn-warning p-1 fw-bold" x-on:click="$data.pay()"><i class="bi bi-currency-exchange"></i> Pay</button>
+                <div x-show="open">
+                  <div class="mt-2">
+                    <p class="message fw-bold text-center bg-warning bg-gradient p-2 rounded" x-show="$data.showMessage" x-text="$data.paymentAmount >= $data.getTotalPrice() ? `Enjoy your pizzas! Change due: R${($data.paymentAmount - $data.getTotalPrice()).toFixed(2)}` : 'Sorry - that is not enough money!'"></p>
+                    <input type="number" step="20" min="0" x-model.number="$data.paymentAmount" placeholder="Enter payment amount" class="p-1 pt-0" />
+                    <button class="btn btn-warning p-1 fw-bold" x-on:click="$data.pay()"><i class="bi bi-currency-exchange"></i> Pay</button>
+                  </div>
                 </div>
-              </div>
+                
           </div>
           </div>
         </div>
